@@ -38,11 +38,6 @@ module.exports = _.merge(_.cloneDeep(require('../base/Model')), {
       collection: 'Passport',
       via: 'user'
     },
-    // Message objects that user has sent
-    messages: {
-      collection: 'Message',
-      via: 'user'
-    },
     // Login objects that are attached to user
     logins: {
       collection: 'UserLogin',
@@ -56,23 +51,23 @@ module.exports = _.merge(_.cloneDeep(require('../base/Model')), {
     // Below are relations to another objects via generic 'createdUser' and 'updatedUser' properties
 
     // Authors
-    createdAuthors: {
-      collection: 'Author',
-      via: 'createdUser'
-    },
-    updatedAuthors: {
-      collection: 'Author',
-      via: 'updatedUser'
-    },
-
-    // Books
-    createdBooks: {
-      collection: 'Book',
-      via: 'createdUser'
-    },
-    updatedBooks: {
-      collection: 'Book',
-      via: 'updatedUser'
-    }
+    // createdAuthors: {
+    //   collection: 'Author',
+    //   via: 'createdUser'
+    // },
+    // updatedAuthors: {
+    //   collection: 'Author',
+    //   via: 'updatedUser'
+    // },
+    //
+    // // Books
+    // createdBooks: {
+    //   collection: 'Book',
+    //   via: 'createdUser'
+    // },
+    // updatedBooks: {
+    //   collection: 'Book',
+    //   via: 'updatedUser'
+    // }
   }
 });
