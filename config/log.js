@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Built-in Log Configuration
  * (sails.config.log)
@@ -7,23 +9,22 @@
  * allows for some pretty neat custom transports/adapters for log messages)
  *
  * For more information on the Sails logger, check out:
- * http://sailsjs.org/#!/documentation/concepts/Logging
+ * http://sailsjs.org/#/documentation/concepts/Logging
  */
-
-module.exports.log = {
-
+module.exports = {
   /***************************************************************************
-  *                                                                          *
-  * Valid `level` configs: i.e. the minimum log level to capture with        *
-  * sails.log.*()                                                            *
-  *                                                                          *
-  * The order of precedence for log levels from lowest to highest is:        *
-  * silly, verbose, info, debug, warn, error                                 *
-  *                                                                          *
-  * You may also set the level to "silent" to suppress all logs.             *
-  *                                                                          *
-  ***************************************************************************/
-
-  // level: 'info'
-
+   *                                                                          *
+   * Valid `level` configs: i.e. the minimum log level to capture with        *
+   * sails.log.*()                                                            *
+   *                                                                          *
+   * The order of precedence for log levels from lowest to highest is:        *
+   * silly, verbose, info, debug, warn, error                                 *
+   *                                                                          *
+   * You may also set the level to "silent" to suppress all logs.             *
+   *                                                                          *
+   ***************************************************************************/
+  log: {
+    level: 'info',
+    filePath: 'logs/application.log'
+  }
 };

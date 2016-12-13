@@ -1,3 +1,3 @@
 # capture-api
 
-a [Sails](http://sailsjs.org) application
+REST API for AteroCapture extension
