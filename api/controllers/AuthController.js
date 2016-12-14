@@ -2,7 +2,7 @@
 
 var async = require('async');
 var _ = require('lodash');
-
+var actionUtil = require('../../node_modules/sails/lib/hooks/blueprints/actionUtil');
 /**
  * Authentication Controller
  *
@@ -23,6 +23,25 @@ var AuthController = {
    * @param   {Request}   request     Request object
    * @param   {Response}  response    Response object
    */
+
+   register: function(req, res){
+
+       var data = actionUtil.parseValues(req);
+
+       sails.models.user.create(data).exec(function(err, user){
+           if(err) return res.negotiate(err);
+           if(!user) return res.notFound("User not found"); //This should never happen
+
+           req.user = user;
+           req.params.action = "connect";
+           sails.services['passport'].callback(req,res,function(err, user){
+               if(err) return res.negotiate(err);
+               res.ok(user);
+           });
+       });
+   },
+
+
   logout: function logout(request, response) {
     request.logout();
 
@@ -94,6 +113,21 @@ var AuthController = {
         }
       });
     });
+  },
+
+  signup: function (req, res) {
+    var params = {username: req.body.username, password: req.body.password};
+
+    User.create(params).exec(function(err, user) {
+      if (err) {
+        res.serverError(err);
+      }
+      else {
+        res.send(user);
+      }
+      return user;
+    });
+
   },
 
   /**

@@ -20,11 +20,11 @@ module.exports = _.merge(_.cloneDeep(require('../base/Model')), {
     },
     firstName: {
       type: 'string',
-      required: true
+      required: false
     },
     lastName: {
       type: 'string',
-      required: true
+      required: false
     },
     admin: {
       type: 'boolean',

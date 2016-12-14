@@ -27,39 +27,13 @@ module.exports.policies = {
     'checkPassword':  ['authenticated']
   },
 
-  // Author controller
-  AuthorController: {
-    '*':        ['authenticated'],
-    'count':    ['authenticated'],
-    'find':     ['authenticated'],
-    'findOne':  ['authenticated'],
-    'create':   ['authenticated', 'isAdmin', 'addDataCreate'],
-    'update':   ['authenticated', 'isAdmin', 'addDataUpdate'],
-    'destroy':  ['authenticated', 'isAdmin'],
-    'add':      ['authenticated', 'isAdmin'],
-    'remove':   ['authenticated', 'isAdmin']
-  },
-
-  // Book controller
-  BookController: {
-    '*':        ['authenticated'],
-    'count':    ['authenticated'],
-    'find':     ['authenticated'],
-    'findOne':  ['authenticated'],
-    'create':   ['authenticated', 'isAdmin', 'addDataCreate'],
-    'update':   ['authenticated', 'isAdmin', 'addDataUpdate'],
-    'destroy':  ['authenticated', 'isAdmin'],
-    'add':      ['authenticated', 'isAdmin'],
-    'remove':   ['authenticated', 'isAdmin']
-  },
-
   // User controller
   UserController: {
     '*':        ['authenticated'],
-    'count':    ['authenticated'],
-    'find':     ['authenticated'],
+    'count':    false,
+    'find':     false,
     'findOne':  ['authenticated'],
-    'create':   ['authenticated', 'isAdmin', 'addDataCreate'],
+    'create':   true,
     'update':   ['authenticated', 'isAdmin', 'addDataUpdate'],
     'destroy':  ['authenticated', 'isAdmin'],
     'add':      ['authenticated', 'isAdmin'],
